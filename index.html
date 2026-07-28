@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Susant Dot IO | Tech & CS Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --bg-color: #0b0c10;
+      --card-bg: #1f2833;
+      --accent: #00f0ff;
+      --accent-purple: #a855f7;
+      --text-main: #ffffff;
+      --text-sub: #c5c6c7;
+      --border: #2e3c4e;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      padding: 15px;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Header Profile */
+    .profile {
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    .avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 3px solid var(--accent);
+      box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      letter-spacing: 1px;
+    }
+
+    .accent { color: var(--accent); }
+
+    .tagline {
+      color: var(--text-sub);
+      font-size: 0.9rem;
+      margin-top: 4px;
+    }
+
+    /* Social Links */
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 15px;
+    }
+
+    .social-links a {
+      color: var(--text-main);
+      font-size: 1.6rem;
+      transition: 0.2s;
+    }
+
+    .social-links a:hover {
+      color: var(--accent);
+    }
+
+    /* Cards */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+    .card h2 {
+      font-size: 1.2rem;
+      color: var(--accent);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .subtext {
+      color: var(--text-sub);
+      font-size: 0.85rem;
+      margin-bottom: 15px;
+    }
+
+    /* Uploader Form */
+    .upload-form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .input-field, .file-btn {
+      background: #131921;
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      width: 100%;
+    }
+
+    .input-field:focus {
+      border-color: var(--accent);
+      outline: none;
+    }
+
+    .upload-btn {
+      background: var(--accent);
+      color: #000;
+      font-weight: bold;
+      border: none;
+      padding: 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    #upload-status {
+      margin-top: 10px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      word-break: break-all;
+    }
+
+    /* Video Embed */
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%; border: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Header / Profile -->
+    <header class="profile">
+      <img src="https://github.com/susantdotio.png" alt="Susant Avatar" class="avatar">
+      <h1>susant<span class="accent">.io</span></h1>
+      <p class="tagline">B.Tech CS Student | Maker & Developer</p>
+      
+      <div class="social-links">
+        <a href="https://github.com/susantdotio" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://instagram.com/susantdotio" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://facebook.com/susantdotio" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://wa.me/yourphonenumber" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </header>
+
+    <!-- Mobile File Uploader -->
+    <section class="card">
+      <h2><i class="fas fa-file-upload"></i> Direct Mobile Uploader</h2>
+      <p class="subtext">Upload any code files (.py, .cpp, .c, .js, .svg, .html) directly to your website repository.</p>
+
+      <div class="upload-form">
+        <input type="password" id="github-token" placeholder="Paste GitHub Token Here" class="input-field">
+        <input type="file" id="file-input" class="file-btn">
+        <input type="text" id="file-folder" placeholder="Folder name (e.g. projects)" value="uploads" class="input-field">
+        
+        <button onclick="uploadFileToWebsite()" class="upload-btn">
+          <i class="fas fa-cloud-upload-alt"></i> Upload File
+        </button>
+      </div>
+
+      <div id="upload-status"></div>
+    </section>
+
+    <!-- Project Video -->
+    <section class="card">
+      <h2><i class="fas fa-play-circle"></i> Maker Desk Demo</h2>
+      <div class="video-container">
+        <!-- Paste your YouTube Video ID in place of YOUR_VIDEO_ID -->
+        <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="Desk Setup Project" allowfullscreen></iframe>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    async function uploadFileToWebsite() {
+      const token = document.getElementById('github-token').value.trim();
+      const fileInput = document.getElementById('file-input');
+      const folder = document.getElementById('file-folder').value.trim();
+      const status = document.getElementById('upload-status');
+
+      if (!token) {
+        status.style.color = '#ff5555';
+        status.innerText = '❌ Please enter your Personal Access Token.';
+        return;
+      }
+
+      if (fileInput.files.length === 0) {
+        status.style.color = '#ff5555';
+        status.innerText = '❌ Please select a file to upload.';
+        return;
+      }
+
+      const file = fileInput.files[0];
+      const filePath = folder ? `${folder}/${file.name}` : file.name;
+
+      status.style.color = '#00f0ff';
+      status.innerText = '⏳ Uploading file... Please wait.';
+
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = async function () {
+        const contentBase64 = reader.result.split(',')[1];
+
+        // Target your exact repository on GitHub
+        const url = `https://api.github.com/repos/susantdotio/susantdotio.github.io/contents/${filePath}`;
+
+        try {
+          const response = await fetch(url, {
+            method: 'PUT',
+            headers: {
+              'Authorization': `token ${token}`,
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              message: `Uploaded ${file.name} via web browser`,
+              content: contentBase64
+            })
+          });
+
+          if (response.ok) {
+            status.style.color = '#55ff55';
+            status.innerText = `✅ Success! Uploaded ${file.name} to '${filePath}'.`;
+            localStorage.setItem('gh_upload_token', token);
+            fileInput.value = '';
+          } else {
+            const errorData = await response.json();
+            status.style.color = '#ff5555';
+            status.innerText = `❌ Error: ${errorData.message}`;
+          }
+        } catch (err) {
+          status.style.color = '#ff5555';
+          status.innerText = '❌ Network error while uploading.';
+        }
+      };
+    }
+
+    // Load saved token on mobile browser startup
+    document.addEventListener("DOMContentLoaded", () => {
+      const savedToken = localStorage.getItem('gh_upload_token');
+      if (savedToken) {
+        document.getElementById('github-token').value = savedToken;
+      }
+    });
+  </script>
+</body>
+</html>
