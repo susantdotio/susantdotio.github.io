@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <!-- Background Radial Gradient -->
+    <radialGradient id="bgGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#141a22" />
+      <stop offset="100%" stop-color="#0b0c10" />
+    </radialGradient>
+
+    <!-- Cyan Glow Effect -->
+    <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background Circle -->
+  <circle cx="250" cy="250" r="240" fill="url(#bgGlow)"/>
+
+  <!-- Outer Cyan Rings -->
+  <circle cx="250" cy="250" r="230" fill="none" stroke="#00f0ff" stroke-width="4" opacity="0.5"/>
+  <circle cx="250" cy="250" r="220" fill="none" stroke="#008080" stroke-width="3"/>
+  <circle cx="250" cy="250" r="215" fill="none" stroke="#00f0ff" stroke-width="2" filter="url(#neonGlow)"/>
+
+  <!-- Center Branding: Left Bracket < -->
+  <path d="M 165 175 L 85 250 L 165 325" 
+        fill="none" 
+        stroke="#00f0ff" 
+        stroke-width="22" 
+        stroke-linecap="round" 
+        stroke-linejoin="round" 
+        filter="url(#neonGlow)"/>
+
+  <!-- Center Branding: Letter S -->
+  <path d="M 310 180 C 220 140, 180 220, 250 250 C 320 280, 280 360, 190 320" 
+        fill="none" 
+        stroke="#ffffff" 
+        stroke-width="22" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"/>
+
+  <!-- Center Branding: Right Bracket > -->
+  <path d="M 335 175 L 415 250 L 335 325" 
+        fill="none" 
+        stroke="#00f0ff" 
+        stroke-width="22" 
+        stroke-linecap="round" 
+        stroke-linejoin="round" 
+        filter="url(#neonGlow)"/>
+</svg>
